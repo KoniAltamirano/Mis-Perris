@@ -98,12 +98,12 @@ header nav ul li a {
     display: block;
 }
 
-.login a {
+.login {
     color: #4fb98d;
     border: solid #fff;
 }
 
-.login a:hover {
+.login:hover {
     color: #fff;
     border: #4fb98d;
 }
