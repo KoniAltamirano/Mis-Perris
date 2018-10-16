@@ -92,12 +92,20 @@ header nav ul li {
 
 
 header nav ul li a {
-
     color: white;
     padding: 20px;
     text-decoration: none;
     display: block;
+}
 
+.login a {
+    color: #4fb98d;
+    border: solid #fff;
+}
+
+.login a:hover {
+    color: #fff;
+    border: #4fb98d;
 }
 
 header nav ul li a:hover {
@@ -105,7 +113,7 @@ header nav ul li a:hover {
     color: #4fb98d;
 }
 
-#asidemain{
+#asidemain {
     
     float: right;
     text-align: left;
