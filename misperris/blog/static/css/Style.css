@@ -98,16 +98,6 @@ header nav ul li a {
     display: block;
 }
 
-.login {
-    color: #4fb98d;
-    border: solid #fff;
-}
-
-.login:hover {
-    color: #fff;
-    border: #4fb98d;
-}
-
 header nav ul li a:hover {
     background-color: #ffffff;
     color: #4fb98d;
