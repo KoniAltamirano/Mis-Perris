@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contacto</title>
+    <script src="/static/Js/jquery-3.3.1.js"></script>
+    <script src="/static/Js/script.js"></script>
+    <script src="/static/Js/jquery.validate.min.js"></script>
+    <link rel="stylesheet" href="/static/fontsicon/style.css">
+    <link rel="stylesheet" href="/static/Css/Style.css">
+</head>
+
+<body>
+    <section id="formulario">
+        <div class="row">
+            <div class="col-xs-12">
+                <br><button type="submit" onclick="history.back()" span class="icon-arrow-left volver"> Volver</button></b>
+                <b><br>
+                    <form id="formulario-perris" action="Main.html" method="POST">
+                        <br>
+                        <h1>Registro Mis Perris</h1>
+                        <h4>¡Postula para adoptar una mascota!</h4>
+                        <br>
+                        <label>RUT:</label>
+                        <input type="text" name="rut" required pattern="\d{3,8}-[\d|kK]{1}" placeholder="Ingrese su RUT">
+                        <br>
+                        <br>
+                        <label>Nombre Completo:</label>
+                        <input type="text" name="nombre" required pattern="[A-Za-z\s]+" placeholder="Ingrese su nombre">
+                        <br>
+                        <br>
+                        <label>Fecha de Nacimiento:</label>
+                        <input type="date" name="fecha">
+                        <br>
+                        <br>
+                        <label>Teléfono de contacto:</label>
+                        <input type="text" name="fono" required pattern="[0-9]+" placeholder="Ingrese teléfono">
+                        <br>
+                        <br>
+                        <label>Correo Electrónico:</label>
+                        <input type="text" name="mail" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
+                            placeholder="Ingrese correo electrónico">
+                        <br>
+                        <br>
+                        <label>Región:</label>
+                        <select id="regiones" name="region">
+                            <option value="0">Arica y Parinacota</option>
+                            <option value="1">Tarapacá</option>
+                            <option value="2">Antofagasta</option>
+                            <option value="3">Atacama</option>
+                            <option value="4">Coquimbo</option>
+                            <option value="5">Valparaíso</option>
+                            <option value="6">Libertador Gral. Bernardo O'Higgins</option>
+                            <option value="7">Maule</option>
+                            <option value="8">Bío Bío</option>
+                            <option value="9">Araucanía</option>
+                            <option value="10">Los Ríos</option>
+                            <option value="11">Los Lagos</option>
+                            <option value="12">Aisén del Gral. Carlos Ibáñez del Campo</option>
+                            <option value="13">Magallanes y Antártica Chilena</option>
+                            <option value="14">Metropolitana de Santiago</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label>Ciudad:</label>
+                        <select id="comunas" name="ciudad"></select>
+                        <br>
+                        <br>
+                        <label>Tipo de Vivienda:</label>
+                        <select name="vivienda">
+                            <option value="0">Casa con patio grande</option>
+                            <option value="1">Casa con patio pequeño</option>
+                            <option value="2">Casa sin patio</option>
+                            <option value="3">Departamento</option>
+                        </select>
+                        <br>
+                        <br>
+                        <button type="submit">Enviar Datos</button>
+                </b>
+                <br>
+                <br>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
