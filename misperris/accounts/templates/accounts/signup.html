@@ -1,18 +1,14 @@
-<<<<<<< HEAD
-{% extends 'accounts/base_accounts.html' %}
-=======
->>>>>>> caa41e8155771cff258a3d34bb44a91bed8e6bc8
 
+{% extends 'accounts/base_accounts.html' %}
 {% block content %}
+
 <h1>Registro Usuarios</h1>
 <h2>¡Regístrate para adoptar una mascota!</h2>
 
 <form class="site-form" action="/accounts/signup/" method="POST">
-{% csrf_token %}
-{{ form }}
-<input type="submit" value="Registrar">
-
-
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Registrar">
 </form>
 
 {% endblock %}
