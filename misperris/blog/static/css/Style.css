@@ -77,12 +77,10 @@ header{
     font-size: 1.3em;
 }
 
-header nav ul{
-    
+header nav ul {
     overflow: hidden;
     list-style: none;
     text-align: center;
-    
 }
 
 header nav ul li {
