@@ -6,6 +6,10 @@
     box-sizing: border-box;
 }
 
+body {
+    background-image: url('../static/IMG/perro-familia.jpg');
+}
+
 h1 {
     font-family: 'Lato', sans-serif;
 }
