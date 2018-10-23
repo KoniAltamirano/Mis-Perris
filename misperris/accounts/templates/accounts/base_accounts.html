@@ -14,34 +14,29 @@
 
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <header>
-                    <nav>
-                        <ul>
-                            <li>
-                                <img src="/static/IMG/logo.png" alt="logo">
-                            </li>
-                            <li>
-                                <a href="#">Inicio</a>
-                            </li>
-                            <li>
-                                <a href="#">Quiénes Somos</a>
-                            </li>
-                            <li>
-                                <a href="#">Servicios</a>
-                            </li>
-                            <li>
-                                <a href="#">Contáctanos</a>
-                            </li>
-
-                        </ul>
-                    </nav>
-                </header>
-                {% block content %}
-                {% endblock %}
-            </div>
-        </div>
+        <header>
+            <nav>
+                <ul>
+                    <li>
+                        <img src="/static/IMG/logo.png" alt="logo">
+                    </li>
+                    <li>
+                        <a href="#">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="#">Quiénes Somos</a>
+                    </li>
+                    <li>
+                        <a href="#">Servicios</a>
+                    </li>
+                    <li>
+                        <a href="#">Contáctanos</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        {% block content %}
+        {% endblock %}
     </div>
 
 </body>
