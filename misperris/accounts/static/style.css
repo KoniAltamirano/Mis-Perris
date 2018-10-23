@@ -13,6 +13,7 @@ body {
 header {
     background: #4fb98d;
     font-family: 'Lato', sans-serif;
+    width: 100%;
 }
 
 header nav ul {
