@@ -4,18 +4,15 @@
 <html lang="en">
 
 <head>
-    <title>Registro Mis Perris</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <title>Registro Usuarios Mis Perris</title>
+    <link rel="stylesheet" href="misperris/blog/static/css/flexboxgrid.css">
     <link rel="stylesheet" href="/static/style.css">
-
 </head>
 
 <body>
-    <div class="content container">
+    <div class="container">
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-xs-12">
                 <header>
                     <nav>
                         <ul>
@@ -23,7 +20,7 @@
                                 <img src="/static/IMG/logo.png" alt="logo">
                             </li>
                             <li>
-                                <a href="#">Inicio</a>
+                                <a href="{% url 'blog:home' %}">Inicio</a>
                             </li>
                             <li>
                                 <a href="#">Quiénes Somos</a>
@@ -34,16 +31,15 @@
                             <li>
                                 <a href="#">Contáctanos</a>
                             </li>
-
                         </ul>
                     </nav>
                 </header>
+                <br>
                 {% block content %}
                 {% endblock %}
             </div>
         </div>
     </div>
-
 </body>
 
 </html>
