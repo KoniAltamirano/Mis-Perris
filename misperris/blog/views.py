@@ -3,11 +3,14 @@ from django.utils import timezone
 from .models import Usuario
 from .forms import UsuarioForm
 from django.shortcuts import redirect
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 
 # Create your views here.
 def home(request):
     return render(request, 'blog/Main.html')
+
+def home_register(request):
+    return render(request, 'blog/Main_Register.html')
 
 def registro(request):
     form = UsuarioForm()
