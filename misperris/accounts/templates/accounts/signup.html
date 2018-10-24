@@ -1,16 +1,16 @@
-
 {% extends 'accounts/base_accounts.html' %}
 {% block content %}
 
-<h1>Registro Usuarios</h1>
-<h2>¡Regístrate para adoptar una mascota!</h2>
-
-<form class="site-form" action="/accounts/signup/" method="POST">
-    {% csrf_token %}
-    {{ form }}
+<div class="registro">
+    <h1>¡Regístrate para adoptar una mascota!</h1>
     <br>
-    <br>
-    <input type="submit" value="Registrar">
-</form>
+    <form class="site-form" action="/accounts/signup/" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <br>
+        <input type="submit" name="submit" value="Registrar">
+        <input type="button" name="back" value="Volver" onclick="history.go(-2)">
+    </form>
+</div>
 
 {% endblock %}
