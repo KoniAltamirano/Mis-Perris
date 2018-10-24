@@ -19,6 +19,9 @@ header {
     font-family: 'Lato', sans-serif;
 }
 
+
+
+
 header nav ul {
     overflow: hidden;
     list-style: none;
@@ -122,11 +125,13 @@ h1 {
 
 form li {
     visibility: hidden;
+    
 }
 
 .helptext {
     visibility: hidden;
     overflow: hidden; 
+    
 }
 
 form input[name='submit'] {
@@ -157,6 +162,7 @@ input[name='back'] {
 form label {
     margin-right: 12px;
 }
+
 
 @media screen and (max-width: 870px){
     header nav {
