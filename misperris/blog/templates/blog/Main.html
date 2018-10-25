@@ -48,18 +48,19 @@
                                 <a href="#">Contáctanos</a>
                             </li>
                             {% if user.is_authenticated %}
-                            <li style="font-size:20px">
-                                <div>
-                                Usuario: {{ request.user }}
-
-                                </div>
-                                <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
-                                    {% csrf_token %}
-                                    <button type="submit">Salir</button>
-                                </form>
-                            </li>
                             <li>
                                 <a href="Registro.html">Postula AQUÍ!</a>
+                            </li>
+                            <li style="font-size:16px">
+                                <div class="connect-message">
+                                Conectado como: {{ request.user }}
+                                </div>
+                            </li>
+                            <li>
+                                <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+                                    {% csrf_token %}
+                                    <button class="salir" type="submit">Salir</button>
+                                </form>
                             </li>
                             {% else %}
                             <li style="font-size:20px">
@@ -201,26 +202,24 @@
 
             <div class="col-xs-6">
                 <h1>Disponibles</h1>
-                <br> {% for pets in mascotas %} {% if pets.estado == "DISPONIBLE" %}
+                <br> 
+                {% for pets in mascotas %} {% if pets.estado == "DISPONIBLE" %}
                 <li class="galeria__item">
-
                     <h2>{{pets.nombre}}</h2>
                     <img src="{{pets.foto.url}}" class="galeria__img">
-
                 </li>
-
                 {% endif %} {% endfor %}
             </div>
             <div class="col-xs-6">
                 <h1>Rescatados</h1>
-                <br> {% for pets in mascotas %} {% if pets.estado == "RESCATADO" %}
+                <br> 
+                {% for pets in mascotas %} {% if pets.estado == "RESCATADO" %}
                 <li class="galeria__item">
 
                     <h2>{{pets.nombre}}</h2>
                     <img src="{{pets.foto.url}}" class="galeria__img" width="200">
                     {{pets.descripcion}}
                 </li>
-
                 {% endif %} {% endfor %}
             </div>
 
