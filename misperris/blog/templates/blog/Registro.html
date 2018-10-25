@@ -6,7 +6,7 @@
     <div class="row">
         <br>
         <br>
-        <form id="formulario-perris" action="Main.html" method="POST" data-cities-url="{% url 'blog:ajax_load_ciudades' %}">
+        <form id="formulario-perris" action="Main.html" method="POST" data-cities-url="{% url 'blog:load_ciudades' %}">
             <br>
             <h1>¡Postula para adoptar una mascota!</h1>
             <br>
@@ -85,7 +85,7 @@
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script>
             $("#id_region").change(function () {
-                var url = $("#formulario-perris").attr("data-ciudades-url");  // get the url of the `load_cities` view
+                var url = $("#formulario-perris").attr("data-cities-url");  // get the url of the `load_cities` view
                 var regionId = $(this).val();  // get the selected country ID from the HTML input
 
                 $.ajax({                       // initialize an AJAX request

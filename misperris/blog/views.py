@@ -1,11 +1,16 @@
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
-from .models import Usuario, Mascotas
+from .models import Usuario, Mascotas , Ciudad
 from .forms import UsuarioForm
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required, permission_required
 from . import forms
 from django.http import HttpResponse
+from django.views.generic import ListView
+
+class MascotaList(ListView):
+    model = Mascotas
+
 
 
 # Create your views here.
@@ -66,3 +71,8 @@ def load_ciudades(request):
     region_id = request.GET.get('region')
     ciudades = Ciudad.objects.filter(region_id=region_id).order_by('nombre')
     return render(request, 'blog/ciudad_dropdown_list_options.html', {'ciudades': ciudades})
+
+
+
+
+

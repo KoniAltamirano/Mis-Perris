@@ -10,7 +10,7 @@ urlpatterns = [
     
     url(r'^Usuario_List', views.usuario_list, name='usuario_list'),
     url(r'^Registro', views.registro, name='registro'),
-    path('ajax/load-ciudades/', views.load_ciudades, name='ajax_load_ciudades'),
+    path('ajax/load-cities/', views.load_ciudades, name='load_ciudades'),
     url(r'^usuario/(?P<pk>[0-9]+)/$', views.usuario_detail, name='usuario_detail'),
     url(r'^usuario/(?P<pk>[0-9]+)/edit/$', views.usuario_edit, name='usuario_edit'), 
     url(r'^Mascota_List/$',views.mascota_list),
