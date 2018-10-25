@@ -61,10 +61,6 @@ def mascota_list(request):
     mascotas = Mascotas.objects.all().order_by('fecha_publicacion')
     return render(request,'blog/Mascota_list.html',{'mascotas':mascotas}) 
 
-def mascota_detail(request,pk):
-    mascota = get_object_or_404(Mascotas, pk=pk)
-    return render(request, 'blog/mascota_detail.html', {'mascota': mascota})
-
 @login_required(login_url="/accounts/login/")
 def usuario_detail(request,pk):
     usuario = get_object_or_404(Usuario, pk=pk)
