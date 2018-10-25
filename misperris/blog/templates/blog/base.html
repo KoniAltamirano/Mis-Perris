@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="/static/fontsicon/style.css">
     <link rel="stylesheet" href="/static/css/flexboxgrid.css">
     <link rel="stylesheet" href="" type="text/css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <script src="static/Js/jquery.flexslider.js"></script>
     <link rel="stylesheet" href="/static/css/LightBox.css">
     <link rel="stylesheet" href="/static/css/flexslider.css">
@@ -25,11 +24,6 @@
     <script src="static/Js/script.js"></script>
     <link rel="stylesheet" href="/static/css/Style.css">
 
-        
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 </head>
 <body>
     <div class="">
@@ -66,7 +60,7 @@
                             </li>
                             {% elif request.get_full_path == Registro.html %}
                             <li>
-                                <a href="Registro.html">Adopta Aqui!</a>
+                                <a href="Registro.html">Postula AQUÍ!</a>
                             </li>
                             {% else %}
                             <li style="font-size:20px">
@@ -83,6 +77,11 @@
             </div>
         </div>
     </div>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 </body>
 
 </html>

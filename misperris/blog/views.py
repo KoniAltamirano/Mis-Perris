@@ -1,21 +1,17 @@
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
-from .models import Usuario
+from .models import Usuario, Mascotas
 from .forms import UsuarioForm
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required, permission_required
-from .models import Mascotas
 from . import forms
 from django.http import HttpResponse
+
 
 # Create your views here.
 def home(request):
     mascotas = Mascotas.objects.all().order_by()
     return render(request, 'blog/Main.html', {'mascotas':mascotas })
-
-def home_register(request):
-    mascotas = Mascotas.objects.all().order_by()
-    return render(request, 'blog/Main_Register.html',{'mascotas':mascotas })
 
 @login_required(login_url="/accounts/login/")
 def registro(request):
@@ -65,3 +61,8 @@ def mascota_list(request):
 def usuario_detail(request,pk):
     usuario = get_object_or_404(Usuario, pk=pk)
     return render(request, 'blog/Usuario_Detail.html', {'usuario': usuario})
+
+def load_ciudades(request):
+    region_id = request.GET.get('region')
+    ciudades = Ciudad.objects.filter(region_id=region_id).order_by('nombre')
+    return render(request, 'blog/ciudad_dropdown_list_options.html', {'ciudades': ciudades})

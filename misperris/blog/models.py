@@ -2,17 +2,34 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import ugettext as _
 
+class Region(models.Model):
+    nombre = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.nombre
+
+class Ciudad(models.Model):
+    region = models.ForeignKey(Region, on_delete=models.CASCADE)
+    nombre = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.nombre
 
 class Usuario(models.Model):
-    
     rut = models.CharField(max_length=12)
     nombre_completo = models.CharField(max_length=100)
     fecha_nacimiento = models.DateField()
     telefono = models.CharField(max_length=12,null=True)
     email = models.EmailField()
-    region = models.CharField(max_length=50)
-    ciudad = models.CharField(max_length=30)
-    tipo_vivienda = models.CharField(max_length=25)
+    region = models.ForeignKey(Region, on_delete=models.SET_NULL, null=True)
+    ciudad = models.ForeignKey(Ciudad, on_delete=models.SET_NULL, null=True)
+    tipo_vivienda_choices = (
+                     ('PATIO_GRANDE','Casa con patio grande'),
+                     ('PATIO_PEQUEÑO','Casa con patio pequeño'),
+                     ('SIN_PATIO','Casa sin patio'),
+                     ('DEPTO','Departamento'),
+    )
+    tipo_vivienda = models.CharField(max_length=30,choices=tipo_vivienda_choices,default='RESCATADO')
     nombre_user = models.CharField(max_length=30)
     fecha_creacion = models.DateTimeField(
             default=timezone.now)
