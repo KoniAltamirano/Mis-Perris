@@ -10,7 +10,9 @@
                 <br>
                 <h1>¡Postula para adoptar una mascota!</h1>
                 <br>
-                <div class="form_part1">
+                {% csrf_token %}
+                {{ form }}
+                <!--<div class="form_part1">
                     <label>RUT:</label>
                     <input type="text" name="rut" required pattern="\d{3,8}-[\d|kK]{1}" placeholder="Ingrese su RUT">
                     <br>
@@ -74,9 +76,10 @@
                 <button type="submit" name="send">Enviar</button>
                 </b>
                 <br>
-                <br>
+                <br>-->
+                <input type="submit" name="submit" value="Enviar">
+                <a href="{% url 'blog:home' %}"><input type="button" name="back" value="Volver"></a>
             </form>
-            <a href="{% url 'blog:home_register' %}"><input type="button" name="back" value="Volver"></a>
         </div>
     </section>
 </div>

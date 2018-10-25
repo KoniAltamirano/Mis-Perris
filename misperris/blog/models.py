@@ -10,6 +10,24 @@ class Usuario(models.Model):
     fecha_nacimiento = models.DateField()
     telefono = models.CharField(max_length=12,null=True)
     email = models.EmailField()
+    region_choices = (
+                     ('ARICA','Arica y Parinacota'),
+                     ('TARAPACA','Tarapacá'),
+                     ('ANTOFAGASTA','Antofagasta'),
+                     ('ATACAMA','Atacama'),
+                     ('COQUIMBO','Coquimbo'),
+                     ('VALPARAISO','Valparaíso'),
+                     ('RANCAGUA','Libertador Gral. Bernardo OHiggins'),
+                     ('MAULE','Maule'),
+                     ('BIOBIO','Bío Bío'),
+                     ('ARAUCANIA','Araucanía'),
+                     ('LOSRIOS','Los Ríos'),
+                     ('LOSLAGOS','Los Lagos'),
+                     ('AYSEN','Aysén del Gral. Carlos Ibáñez del Campo'),
+                     ('MAGALLANES','Magallanes y Antártica Chilena'),
+                     ('METROPOLITANA','Metropolitana de Santiago'),
+    )
+    region = models.CharField(max_length=40,choices=region_choices,default='METROPOLITANA')
     region = models.CharField(max_length=50)
     ciudad = models.CharField(max_length=30)
     tipo_vivienda = models.CharField(max_length=25)
