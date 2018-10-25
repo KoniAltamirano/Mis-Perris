@@ -13,10 +13,6 @@ def home(request):
     mascotas = Mascotas.objects.all().order_by()
     return render(request, 'blog/Main.html', {'mascotas':mascotas })
 
-def home_register(request):
-    mascotas = Mascotas.objects.all().order_by()
-    return render(request, 'blog/Main_Register.html',{'mascotas':mascotas })
-
 @login_required(login_url="/accounts/login/")
 def registro(request):
     form = UsuarioForm()
