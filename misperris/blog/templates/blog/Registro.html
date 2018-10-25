@@ -3,16 +3,16 @@
 
 {% block content %}
 <section id="formulario">
-        <div class="row">
+    <div class="row">
+        <br>
+        <br>
+        <form id="formulario-perris" action="Main.html" method="POST" data-cities-url="{% url 'blog:ajax_load_ciudades' %}">
             <br>
+            <h1>¡Postula para adoptar una mascota!</h1>
             <br>
-            <form id="formulario-perris" action="Main.html" method="POST">
-                <br>
-                <h1>¡Postula para adoptar una mascota!</h1>
-                <br>
-                {% csrf_token %}
-                {{ form }}
-                <!--<div class="form_part1">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <!--<div class="form_part1">
                     <label>RUT:</label>
                     <input type="text" name="rut" required pattern="\d{3,8}-[\d|kK]{1}" placeholder="Ingrese su RUT">
                     <br>
@@ -77,12 +77,31 @@
                 </b>
                 <br>
                 <br>-->
-                <input type="submit" name="submit" value="Enviar">
-                <a href="{% url 'blog:home' %}"><input type="button" name="back" value="Volver"></a>
-            </form>
-        </div>
-    </section>
+            <input type="submit" name="submit" value="Enviar">
+            <a href="{% url 'blog:home' %}"><input type="button" name="back" value="Volver"></a>
+
+        </form>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script>
+            $("#id_region").change(function () {
+                var url = $("#formulario-perris").attr("data-ciudades-url");  // get the url of the `load_cities` view
+                var regionId = $(this).val();  // get the selected country ID from the HTML input
+
+                $.ajax({                       // initialize an AJAX request
+                    url: url,                    // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
+                    data: {
+                        'region': regionId       // add the country id to the GET parameters
+                    },
+                    success: function (data) {   // `data` is the return of the `load_cities` view function
+                        $("#id_ciudad").html(data);  // replace the contents of the city input with the data that came from the server
+                    }
+                });
+
+            });
+        </script>
+    </div>
+</section>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 {% endblock %}

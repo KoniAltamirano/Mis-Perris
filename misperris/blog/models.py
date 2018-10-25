@@ -2,35 +2,34 @@ from django.db import models
 from django.utils import timezone
 from django.utils.translation import ugettext as _
 
+class Region(models.Model):
+    nombre = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.nombre
+
+class Ciudad(models.Model):
+    region = models.ForeignKey(Region, on_delete=models.CASCADE)
+    nombre = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.nombre
 
 class Usuario(models.Model):
-    
     rut = models.CharField(max_length=12)
     nombre_completo = models.CharField(max_length=100)
     fecha_nacimiento = models.DateField()
     telefono = models.CharField(max_length=12,null=True)
     email = models.EmailField()
-    region_choices = (
-                     ('ARICA','Arica y Parinacota'),
-                     ('TARAPACA','Tarapacá'),
-                     ('ANTOFAGASTA','Antofagasta'),
-                     ('ATACAMA','Atacama'),
-                     ('COQUIMBO','Coquimbo'),
-                     ('VALPARAISO','Valparaíso'),
-                     ('RANCAGUA','Libertador Gral. Bernardo OHiggins'),
-                     ('MAULE','Maule'),
-                     ('BIOBIO','Bío Bío'),
-                     ('ARAUCANIA','Araucanía'),
-                     ('LOSRIOS','Los Ríos'),
-                     ('LOSLAGOS','Los Lagos'),
-                     ('AYSEN','Aysén del Gral. Carlos Ibáñez del Campo'),
-                     ('MAGALLANES','Magallanes y Antártica Chilena'),
-                     ('METROPOLITANA','Metropolitana de Santiago'),
+    region = models.ForeignKey(Region, on_delete=models.SET_NULL, null=True)
+    ciudad = models.ForeignKey(Ciudad, on_delete=models.SET_NULL, null=True)
+    tipo_vivienda_choices = (
+                     ('PATIO_GRANDE','Casa con patio grande'),
+                     ('PATIO_PEQUEÑO','Casa con patio pequeño'),
+                     ('SIN_PATIO','Casa sin patio'),
+                     ('DEPTO','Departamento'),
     )
-    region = models.CharField(max_length=40,choices=region_choices,default='METROPOLITANA')
-    region = models.CharField(max_length=50)
-    ciudad = models.CharField(max_length=30)
-    tipo_vivienda = models.CharField(max_length=25)
+    tipo_vivienda = models.CharField(max_length=30,choices=tipo_vivienda_choices,default='RESCATADO')
     nombre_user = models.CharField(max_length=30)
     fecha_creacion = models.DateTimeField(
             default=timezone.now)
