@@ -3,6 +3,7 @@
     margin: 0;
     background: #4fb98d;
     list-style: none;
+    
 
 }
 
@@ -25,10 +26,9 @@
 }
 
 .galeria{
-    
+
+    overflow: hidden;
     display: flex;
-    
-    
     
 }
 

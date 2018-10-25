@@ -1,0 +1,22 @@
+{%extends 'blog/base.html' %}
+
+{% block content %}
+<h1>Lista de mascotas</h1>
+
+<div>
+        {% for pets in mascotas %}
+        <div class="mascotas center-xs">
+        <div class="mascota">
+        <h2><a href="">{{ pets.nombre }}
+        </a></h2>
+        <h3>Estado: {{pets.estado}}</h3>
+        <img src="{{pets.foto.url}}" alt="" width="100">
+        
+        </div>
+        </div>
+        {% endfor %}
+    
+    </div>
+
+
+{% endblock %}

@@ -24,10 +24,15 @@
     </script>
     <script src="static/Js/script.js"></script>
     <link rel="stylesheet" href="/static/css/Style.css">
-</head>
 
+        
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+</head>
 <body>
-    <div class="container">
+    <div class="">
         <div class="row">
             <div class="col-xs-12">
                 <header>
@@ -48,6 +53,27 @@
                             <li>
                                 <a href="#">Contáctanos</a>
                             </li>
+                            {% if user.is_authenticated %}
+                            <li style="font-size:20px">
+                                <div>
+                                Usuario: {{ request.user }}
+
+                                </div>
+                                <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit"> Salir </button>
+                                </form>
+                            </li>
+                            {% elif request.get_full_path == Registro.html %}
+                            <li>
+                                <a href="Registro.html">Adopta Aqui!</a>
+                            </li>
+                            {% else %}
+                            <li style="font-size:20px">
+                                <a href="{% url 'accounts:login' %}">INGRESA</a>
+                            </li>
+                            {% endif %}
+
                         </ul>
                     </nav>
                 </header>
