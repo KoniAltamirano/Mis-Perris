@@ -71,5 +71,11 @@ class Mascotas(models.Model):
     def __str__(self):
         return self.nombre
 
+    class Meta:
+        permissions = (
+            ('mantenedor_mascotas', _('Mascotas')),
+        )  
+
+
 
 # Create your models here.

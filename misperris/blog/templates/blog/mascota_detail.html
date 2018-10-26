@@ -1,0 +1,19 @@
+{% extends 'blog/base_mascotas.html' %}
+
+{% block content %}
+    <div class="post">
+        <h1>¡Mascota creada con éxito!</h1>
+        <br>
+        {% if mascotas.image %}
+            <img src="{{ mascota.foto.url }}">
+        {% endif %}
+        {% if mascotas.fecha_publicacion %}
+            <div class="date">
+                {{  mascotas.fecha_publicacion }}
+            </div>
+        {% endif %}
+        <h1>{{ mascotas.nombre }}</h1>
+        <p>{{ mascotas.descripcion |linebreaksbr }}</p>
+        <a class="btn btn-default" href="{% url 'blog:mascota_edit' pk=mascotas.pk %}">Modificar Mascota<span class="icon-pencil edit"></span></a>
+    </div>
+{% endblock %}

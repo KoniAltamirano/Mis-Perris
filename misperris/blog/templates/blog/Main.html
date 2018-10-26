@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -48,12 +48,13 @@
                                 <a href="#">Contáctanos</a>
                             </li>
                             {% if user.is_authenticated %}
+
                             <li>
                                 <a href="Registro.html">Postula AQUÍ!</a>
                             </li>
-                            <li style="font-size:16px">
+                            <li style="font-size:22px" class="aviso-user">
                                 <div class="connect-message">
-                                Conectado como: {{ request.user }}
+                                    Conectado como: {{ request.user }}
                                 </div>
                             </li>
                             <li>
@@ -146,7 +147,8 @@
                             </li>
                             <hr class="linea">
                             <li>
-                                <p> Rescatamos perros en situación de peligro y/o abandono. Los rehabilitamos<br> y los preparamos
+                                <p> Rescatamos perros en situación de peligro y/o abandono. Los rehabilitamos<br> y los
+                                    preparamos
                                     para buscarles un hogar.</p><br>
                             </li>
                             <li>
@@ -168,7 +170,8 @@
                             <img src="/static/IMG/crowfunding.jpg" alt="crowdfunding">
                         </li>
                         <li>
-                            <br><h2>CROWDFUNDING</h2>
+                            <br>
+                            <h2>CROWDFUNDING</h2>
                         </li>
                         <li>
                             <h3>FINANCIAMIENTO</h3>
@@ -176,7 +179,8 @@
                         <hr class="linea">
                         <li>
                             <p>
-                                Sigue nuestras redes sociales para informarte acerca de las diversas campañas y <br> actividades
+                                Sigue nuestras redes sociales para informarte acerca de las diversas campañas y <br>
+                                actividades
                                 que realizamos para obtener financiamiento para seguir ayudando.
                             </p>
                         </li>
@@ -199,26 +203,29 @@
 
     <section class="row center-xs">
         <ul class="galeria" id="fotografias">
-
             <div class="col-xs-6">
-                <h1>Disponibles</h1>
-                <br> 
-                {% for pets in mascotas %} {% if pets.estado == "DISPONIBLE" %}
+                <br>
+                <h2>Disponibles</h2>
+                <hr>
+                <br>
+                {% for pets in mascotas %}
+                {% if pets.estado == "DISPONIBLE" %}
                 <li class="galeria__item">
-                    <h2>{{pets.nombre}}</h2>
+                    <h3>{{pets.nombre}}</h3>
                     <img src="{{pets.foto.url}}" class="galeria__img">
                 </li>
-                {% endif %} {% endfor %}
+                {% endif %}
+                {% endfor %}
             </div>
             <div class="col-xs-6">
-                <h1>Rescatados</h1>
-                <br> 
+                <br>
+                <h2>Rescatados</h2>
+                <hr>
+                <br>
                 {% for pets in mascotas %} {% if pets.estado == "RESCATADO" %}
                 <li class="galeria__item">
-
-                    <h2>{{pets.nombre}}</h2>
-                    <img src="{{pets.foto.url}}" class="galeria__img" width="200">
-                    {{pets.descripcion}}
+                    <h3>{{pets.nombre}}</h3>
+                    <img src="{{pets.foto.url}}" class="galeria__img" width="284">
                 </li>
                 {% endif %} {% endfor %}
             </div>
