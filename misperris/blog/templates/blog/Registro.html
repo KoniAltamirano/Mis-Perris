@@ -1,13 +1,11 @@
 {% extends 'blog/base.html '%}
-
-
 {% block content %}
-<section id="formulario">
+
+<link rel="stylesheet" href="/static/css/Style2.css">
+
+<div class="postulante">
     <div class="row">
-        <br>
-        <br>
-        <form id="formulario-perris" action="Main.html" method="POST" data-cities-url="{% url 'blog:load_ciudades' %}">
-            <br>
+        <form class="form-postulante" action="Main.html" method="POST" data-cities-url="{% url 'blog:load_ciudades' %}">
             <h1>¡Postula para adoptar una mascota!</h1>
             <br>
             {% csrf_token %}
@@ -35,7 +33,7 @@
             });
         </script>
     </div>
-</section>
 </div>
+</body>
 
 {% endblock %}
