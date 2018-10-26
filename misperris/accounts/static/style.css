@@ -156,6 +156,20 @@ input[name='back'] {
     border-radius: 20px 20px 20px 20px;
 }
 
+input[name='name'] {
+    justify-content: center;
+    height: 5vh;
+    width: 6vw;
+    margin-bottom: 3%;
+    font-size: 1.1em;
+    font-family: 'Lato', sans-serif;
+    background-color: #19bb42;
+    border-color: #fff;
+    color: #fff;
+    border-radius: 20px 20px 20px 20px;
+}
+
+
 form label {
     margin-right: 12px;
 }
