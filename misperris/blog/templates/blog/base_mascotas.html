@@ -1,7 +1,7 @@
 {% load staticfiles %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -23,14 +23,9 @@
     </script>
     <script src="static/Js/script.js"></script>
     <link rel="stylesheet" href="/static/css/Style.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-
 </head>
 <body>
-    <div class="">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12">
                 <header>
@@ -44,8 +39,10 @@
                             </li>
                            
                             {% if user.is_authenticated %}
-                            
-                            <li style="font-size:16px">
+                            <li>
+                                <a href="{% url 'blog:mascota_new' %}" class="top-menu"><span class="icon-plus agregar"></span>  Agregar nueva mascota</a>
+                            </li>
+                            <li style="font-size:22px" class="aviso-user">
                                 <div class="connect-message">
                                 Conectado como: {{ request.user }}
                                 </div>
@@ -61,10 +58,6 @@
                                 <a href="{% url 'accounts:login' %}">INGRESA</a>
                             </li>
                             {% endif %}
-                            <li>
-                                    <a href="{% url 'blog:mascota_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-                            </li>
-
                         </ul>
                     </nav>
                 </header>

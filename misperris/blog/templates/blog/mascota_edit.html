@@ -1,15 +1,24 @@
 {% extends 'blog/base_mascotas.html' %}
-
-
 {% block content %}
 
-<h1>Nueva Mascota</h1>
-<form method="POST" class="post-form">{% csrf_token %}
-    {{ form.as_p }} 
+<div class="img-apoyo">
+    <img style="height:300px;" src="http://bowwowpetservice.com/wp-content/uploads/2013/10/sisters_with_family_dog_west_houston.jpg" alt="niñas_con_mascota">
+</div>
+<br>
 
-    <button type="submit" class="save btn btn-default">Guardar</button>
+<div class="nueva_mascota">
+    <h1>Nueva Mascota</h1>
+</div>
+<br>
 
-
-</form>
+<div class="form_mascota_new">
+    <form method="POST" class="post-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br> 
+        <button type="submit" name="submit" class="guardar btn btn-default">Guardar</button>
+        <input type="button" name="back" value="Volver" onclick="history.go(-2)">
+    </form>
+</div>
 
 {% endblock %}
