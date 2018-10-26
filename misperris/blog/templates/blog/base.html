@@ -48,25 +48,26 @@
                                 <a href="#">Contáctanos</a>
                             </li>
                             {% if user.is_authenticated %}
-                            <li style="font-size:20px">
-                                <div>
-                                Usuario: {{ request.user }}
-
-                                </div>
-                                <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
-                                    {% csrf_token %}
-                                    <button type="submit"> Salir </button>
-                                </form>
-                            </li>
-                            {% elif request.get_full_path == Registro.html %}
                             <li>
                                 <a href="Registro.html">Postula AQUÍ!</a>
+                            </li>
+                            <li style="font-size:16px">
+                                <div class="connect-message">
+                                Conectado como: {{ request.user }}
+                                </div>
+                            </li>
+                            <li>
+                                <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
+                                    {% csrf_token %}
+                                    <button class="salir" type="submit">Salir</button>
+                                </form>
                             </li>
                             {% else %}
                             <li style="font-size:20px">
                                 <a href="{% url 'accounts:login' %}">INGRESA</a>
                             </li>
                             {% endif %}
+
 
                         </ul>
                     </nav>
@@ -77,11 +78,6 @@
             </div>
         </div>
     </div>
-
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 </body>
 
 </html>

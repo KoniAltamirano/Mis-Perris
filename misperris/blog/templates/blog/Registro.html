@@ -1,91 +1,23 @@
 {% extends 'blog/base.html '%}
-
-
 {% block content %}
-<section id="formulario">
+
+<link rel="stylesheet" href="/static/css/Style2.css">
+
+<div class="postulante">
     <div class="row">
-        <br>
-        <br>
-        <form id="formulario-perris" action="Main.html" method="POST" data-cities-url="{% url 'blog:ajax_load_ciudades' %}">
-            <br>
+        <form class="form-postulante" action="Main.html" method="POST" data-cities-url="{% url 'blog:load_ciudades' %}">
             <h1>¡Postula para adoptar una mascota!</h1>
             <br>
             {% csrf_token %}
             {{ form.as_p }}
-            <!--<div class="form_part1">
-                    <label>RUT:</label>
-                    <input type="text" name="rut" required pattern="\d{3,8}-[\d|kK]{1}" placeholder="Ingrese su RUT">
-                    <br>
-                    <br>
-                    <label>Nombre Completo:</label>
-                    <input type="text" name="nombre" required pattern="[A-Za-z\s]+" placeholder="Ingrese su nombre">
-                    <br>
-                    <br>
-                    <label>Fecha de Nacimiento:</label>
-                    <input type="date" name="fecha">
-                    <br>
-                    <br>
-                    <label>Teléfono de contacto:</label>
-                    <input type="text" name="fono" required pattern="[0-9]+" placeholder="Ingrese teléfono">
-                </div>
-
-                <br>
-                <br>
-
-                <div class="form_part2">
-                    <label>Correo Electrónico:</label>
-                    <input type="text" name="mail" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
-                        placeholder="Ingrese correo electrónico">
-                    <br>
-                    <br>
-                    <label>Región:</label>
-                    <select id="regiones" name="region">
-                        <option value="0">Arica y Parinacota</option>
-                        <option value="1">Tarapacá</option>
-                        <option value="2">Antofagasta</option>
-                        <option value="3">Atacama</option>
-                        <option value="4">Coquimbo</option>
-                        <option value="5">Valparaíso</option>
-                        <option value="6">Libertador Gral. Bernardo O'Higgins</option>
-                        <option value="7">Maule</option>
-                        <option value="8">Bío Bío</option>
-                        <option value="9">Araucanía</option>
-                        <option value="10">Los Ríos</option>
-                        <option value="11">Los Lagos</option>
-                        <option value="12">Aisén del Gral. Carlos Ibáñez del Campo</option>
-                        <option value="13">Magallanes y Antártica Chilena</option>
-                        <option value="14">Metropolitana de Santiago</option>
-                    </select>
-                    <br>
-                    <br>
-                    <label>Ciudad:</label>
-                    <select id="comunas" name="ciudad"></select>
-                    <br>
-                    <br>
-                    <label>Tipo de Vivienda:</label>
-                    <select name="vivienda">
-                        <option value="0">Casa con patio grande</option>
-                        <option value="1">Casa con patio pequeño</option>
-                        <option value="2">Casa sin patio</option>
-                        <option value="3">Departamento</option>
-                    </select>
-                </div>
-
-                <br>
-                <br>
-                <button type="submit" name="send">Enviar</button>
-                </b>
-                <br>
-                <br>-->
             <input type="submit" name="submit" value="Enviar">
             <a href="{% url 'blog:home' %}"><input type="button" name="back" value="Volver"></a>
-
         </form>
 
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script>
             $("#id_region").change(function () {
-                var url = $("#formulario-perris").attr("data-ciudades-url");  // get the url of the `load_cities` view
+                var url = $("#formulario-perris").attr("data-cities-url");  // get the url of the `load_cities` view
                 var regionId = $(this).val();  // get the selected country ID from the HTML input
 
                 $.ajax({                       // initialize an AJAX request
@@ -101,7 +33,7 @@
             });
         </script>
     </div>
-</section>
 </div>
+</body>
 
 {% endblock %}
