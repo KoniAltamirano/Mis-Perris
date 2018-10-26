@@ -20,12 +20,6 @@ def registro(request):
     return render(request, 'blog/Registro.html', {'form': form})
 
 @login_required(login_url="/accounts/login/")
-def usuario_list(request):
-    usuarios = Usuario.objects.filter().order_by('fecha_publicacion')
-    return render(request, 'blog/Usuario_List.html', {'usuarios': usuarios})
-
-
-@login_required(login_url="/accounts/login/")
 def usuario_new(request):
     if request.method == "POST":
         form = UsuarioForm(request.POST)
@@ -38,13 +32,6 @@ def usuario_new(request):
     else:
         form = UsuarioForm()
     return render(request, 'blog/Usuario_Edit.html', {'form': form})
-
-
-
-@login_required(login_url="/accounts/login/")
-def usuario_detail(request,pk):
-    usuario = get_object_or_404(Usuario, pk=pk)
-    return render(request, 'blog/Usuario_Detail.html', {'usuario': usuario})
 
 def load_ciudades(request):
     region_id = request.GET.get('region')
@@ -75,21 +62,6 @@ def mascota_new(request):
     else:
         form = MascotasForm()
     return render(request, 'blog/mascota_edit.html', {'form': form})
-
-@login_required(login_url="/accounts/login/")
-def usuario_edit(request, pk):
-    usuario = get_object_or_404(Usuario, pk=pk)
-    if request.method == "POST":
-        form = UsuarioForm(request.POST, instance=usuario)
-        if form.is_valid():
-            usuario = form.save(commit=False)
-            usuario.rut = request.user
-            usuario.save()
-            return redirect('Usuario_Detail', pk=usuario.pk)
-    else:
-        form = UsuarioForm(instance=usuario)
-    return render(request, 'blog/Usuario_Edit.html', {'form': form})
-
 
 def mascota_edit(request, pk):
     mascota = get_object_or_404(Mascotas, pk=pk)
