@@ -69,7 +69,7 @@ def mascota_new(request):
 def mascota_edit(request, pk):
     mascota = get_object_or_404(Mascotas, pk=pk)
     if request.method == "POST":
-        form = MascotasForm(request.POST, instance=mascota)
+        form = MascotasForm(request.POST,request.FILES, instance=mascota)
         if form.is_valid():
             mascota = form.save(commit=False)
 
