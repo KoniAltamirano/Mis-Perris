@@ -11,6 +11,10 @@ header{
     font-family: 'Lato', sans-serif;
 }
 
+.imagen_mascota img{
+    width: 10%;
+}
+
 .circulo {
     width: 50px;
     height: 50px;
@@ -314,7 +318,8 @@ input[name='back'] {
 
 .centrado {
 	margin:10px auto;
-	display:block;
+    display:block;
+    
 }
 
 .nueva_mascota h1{
