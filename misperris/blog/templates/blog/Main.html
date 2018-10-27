@@ -47,11 +47,16 @@
                             <li>
                                 <a href="#">Contáctanos</a>
                             </li>
-                            {% if user.is_authenticated %}
 
+                            {% if user.is_authenticated %}
+                            {% if user.is_superuser %}
+                            <li><a href="{% url 'blog:mascota_list' %}">Mascotas</a></li>
+                            {% else %}
                             <li>
                                 <a href="Registro.html">Postula AQUÍ!</a>
                             </li>
+                            {% endif %}
+                            
                             <li style="font-size:22px" class="aviso-user">
                                 <div class="connect-message">
                                     Conectado como: {{ request.user }}
@@ -63,6 +68,7 @@
                                     <button class="salir" type="submit">Salir</button>
                                 </form>
                             </li>
+                            
                             {% else %}
                             <li style="font-size:20px">
                                 <a href="{% url 'accounts:login' %}">INGRESA</a>
@@ -213,6 +219,7 @@
                 <li class="galeria__item">
                     <h3>{{pets.nombre}}</h3>
                     <img src="{{pets.foto.url}}" class="galeria__img">
+                    <section>{{ pets.descripcion }}</section>
                 </li>
                 {% endif %}
                 {% endfor %}
@@ -226,6 +233,7 @@
                 <li class="galeria__item">
                     <h3>{{pets.nombre}}</h3>
                     <img src="{{pets.foto.url}}" class="galeria__img" width="284">
+                    <section>{{ pets.descripcion }}</section>
                 </li>
                 {% endif %} {% endfor %}
             </div>

@@ -39,18 +39,22 @@ def load_ciudades(request):
     ciudades = Ciudad.objects.filter(region_id=region_id).order_by('nombre')
     return render(request, 'blog/ciudad_dropdown_list_options.html', {'ciudades': ciudades})
 
+@login_required(login_url="/accounts/login/")
 def mascota_list(request):
     mascotas = Mascotas.objects.filter().order_by('fecha_publicacion')
     return render(request, 'blog/mascota_list.html', {'mascotas':mascotas})
 
+@login_required(login_url="/accounts/login/")
 def mascota_detail(request, pk):
     mascotas = get_object_or_404(Mascotas, pk=pk)
     return render(request, 'blog/mascota_detail.html', {'mascotas': mascotas})
 
+@login_required(login_url="/accounts/login/")
 def mascota_new(request):
     form = MascotasForm()
     return render(request, 'blog/mascota_edit.html', {'form': form})
 
+@login_required(login_url="/accounts/login/")
 def mascota_new(request):
     if request.method == "POST":
         form = MascotasForm(request.POST,request.FILES)
@@ -65,7 +69,7 @@ def mascota_new(request):
         form = MascotasForm()
     return render(request, 'blog/mascota_edit.html', {'form': form})
 
-
+@login_required(login_url="/accounts/login/")
 def mascota_edit(request, pk):
     mascota = get_object_or_404(Mascotas, pk=pk)
     if request.method == "POST":
@@ -79,6 +83,7 @@ def mascota_edit(request, pk):
         form = MascotasForm(instance=mascota)
     return render(request, 'blog/mascota_edit.html', {'form': form})
 
+@login_required(login_url="/accounts/login/")
 def mascota_delete(request, pk):
     instance = get_object_or_404(Mascotas,pk=pk)
     instance.delete()
