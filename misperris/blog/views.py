@@ -41,8 +41,12 @@ def load_ciudades(request):
 
 @login_required(login_url="/accounts/login/")
 def mascota_list(request):
+    user = request.user
     mascotas = Mascotas.objects.filter().order_by('fecha_publicacion')
-    return render(request, 'blog/mascota_list.html', {'mascotas':mascotas})
+    if user.has_perm('blog.admin'):
+        return render(request, 'blog/Mascota_list.html', {'mascotas':mascotas})
+    else:
+        return render(request,'blog/Main.html')
 
 @login_required(login_url="/accounts/login/")
 def mascota_detail(request, pk):
