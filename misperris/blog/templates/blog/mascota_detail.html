@@ -15,5 +15,6 @@
         <h1>{{ mascotas.nombre }}</h1>
         <p>{{ mascotas.descripcion |linebreaksbr }}</p>
         <a class="btn btn-default" href="{% url 'blog:mascota_edit' pk=mascotas.pk %}">Modificar Mascota<span class="icon-pencil edit"></span></a>
+        <a class="btn btn-default" href="{% url 'blog:mascota_delete' pk=mascotas.pk %}">Borrar Mascota<span class="btn btn-danger"></span></a>
     </div>
 {% endblock %}

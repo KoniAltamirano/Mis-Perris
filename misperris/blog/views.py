@@ -27,7 +27,7 @@ def registro(request):
         if form.is_valid():
             usuario = form.save(commit=False)
             usuario.fecha_publicacion = timezone.now()
-           
+            usuario.author = request.user
             usuario.save()
             return redirect('blog:home')
     else:
@@ -65,6 +65,7 @@ def mascota_new(request):
         form = MascotasForm()
     return render(request, 'blog/mascota_edit.html', {'form': form})
 
+
 def mascota_edit(request, pk):
     mascota = get_object_or_404(Mascotas, pk=pk)
     if request.method == "POST":
@@ -77,6 +78,15 @@ def mascota_edit(request, pk):
     else:
         form = MascotasForm(instance=mascota)
     return render(request, 'blog/mascota_edit.html', {'form': form})
+
+def mascota_delete(request, pk):
+    instance = get_object_or_404(Mascotas,pk=pk)
+    instance.delete()
+    return redirect('blog:mascota_list')
+
+
+
+
 
 
 

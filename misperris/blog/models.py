@@ -34,7 +34,7 @@ class Usuario(models.Model):
                      ('DEPTO','Departamento'),
     )
     tipo_vivienda = models.CharField(max_length=30,choices=tipo_vivienda_choices,default='RESCATADO')
-    
+    author = models.ForeignKey(User,on_delete=models.SET_NULL, null=True)
     fecha_creacion = models.DateTimeField(
             default=timezone.now)
     fecha_publicacion = models.DateTimeField(
