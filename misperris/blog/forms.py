@@ -1,5 +1,8 @@
 from django import forms
 from .models import Usuario, Mascotas, Ciudad
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
 
 
 class UsuarioForm(forms.ModelForm):
@@ -20,10 +23,11 @@ class UsuarioForm(forms.ModelForm):
                     pass  # invalid input from the client; ignore and fallback to empty Ciudad queryset
         elif self.instance.pk:
             self.fields['ciudad'].queryset = self.instance.region.ciudad_set.order_by('nombre')
-
-
+            
 class MascotasForm(forms.ModelForm):
 
     class Meta:
         model = Mascotas
         fields = ('foto','nombre','raza','descripcion','estado')
+
+
