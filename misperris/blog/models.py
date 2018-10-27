@@ -1,6 +1,10 @@
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import ugettext as _
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
+from django.conf import settings
+
 
 class Region(models.Model):
     nombre = models.CharField(max_length=50)
@@ -30,7 +34,7 @@ class Usuario(models.Model):
                      ('DEPTO','Departamento'),
     )
     tipo_vivienda = models.CharField(max_length=30,choices=tipo_vivienda_choices,default='RESCATADO')
-    nombre_user = models.CharField(max_length=30)
+    author = models.ForeignKey(User,on_delete=models.SET_NULL, null=True)
     fecha_creacion = models.DateTimeField(
             default=timezone.now)
     fecha_publicacion = models.DateTimeField(
