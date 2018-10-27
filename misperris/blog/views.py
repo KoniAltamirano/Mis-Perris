@@ -9,6 +9,7 @@ from . import forms
 from django.http import HttpResponse
 
 
+
 # Create your views here.
 def home(request):
     mascotas = Mascotas.objects.all().order_by()
@@ -20,18 +21,18 @@ def registro(request):
     return render(request, 'blog/Registro.html', {'form': form})
 
 @login_required(login_url="/accounts/login/")
-def usuario_new(request):
+def registro(request):
     if request.method == "POST":
         form = UsuarioForm(request.POST)
         if form.is_valid():
             usuario = form.save(commit=False)
-            usuario.rut = request.user
             usuario.fecha_publicacion = timezone.now()
+           
             usuario.save()
-            return redirect('Usuario_Detail', pk=usuario.pk)
+            return redirect('blog:home')
     else:
         form = UsuarioForm()
-    return render(request, 'blog/Usuario_Edit.html', {'form': form})
+    return render(request, 'blog/Registro.html', {'form': form})
 
 def load_ciudades(request):
     region_id = request.GET.get('region')
@@ -52,11 +53,12 @@ def mascota_new(request):
 
 def mascota_new(request):
     if request.method == "POST":
-        form = MascotasForm(request.POST)
+        form = MascotasForm(request.POST,request.FILES)
         if form.is_valid():
             mascota = form.save(commit=False)
             mascota.nombre = mascota.nombre
             mascota.fecha_publicacion = timezone.now()
+            
             mascota.save()
             return redirect('blog:mascota_detail', pk=mascota.pk)
     else:
@@ -69,7 +71,7 @@ def mascota_edit(request, pk):
         form = MascotasForm(request.POST, instance=mascota)
         if form.is_valid():
             mascota = form.save(commit=False)
-            mascota.author = request.user
+
             mascota.save()
             return redirect('blog:mascota_detail', pk=mascota.pk)
     else:

@@ -12,10 +12,11 @@
 <br>
 
 <div class="form_mascota_new">
-    <form method="POST" class="post-form">
+    <form method="POST" class="post-form" enctype="multipart/form-data" >
         {% csrf_token %}
         {{ form.as_p }}
         <br> 
+        
         <button type="submit" name="submit" class="guardar btn btn-default">Guardar</button>
         <input type="button" name="back" value="Volver" onclick="history.go(-2)">
     </form>
