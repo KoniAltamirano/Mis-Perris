@@ -2,7 +2,6 @@ from django.conf.urls import url
 
 from . import views
 
-
 urlpatterns = [
     url(r'^recover/(?P<signature>.+)/$', views.recover_done,
         name='password_reset_sent'),
