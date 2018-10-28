@@ -11,10 +11,6 @@ header{
     font-family: 'Lato', sans-serif;
 }
 
-.imagen_mascota img{
-    width: 10%;
-}
-
 .circulo {
     width: 50px;
     height: 50px;
@@ -190,6 +186,8 @@ hr {
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
+    color: #ffffff;
+    text-shadow: 0.1em 0.1em #333;
 }
 
 #formulario{
@@ -276,8 +274,8 @@ input[name='salir'] {
 }
 
 header nav ul .aviso-user {
-    background: rgb(14, 77, 45);
-    border: solid 5px rgb(14, 77, 45);
+    background: rgb(18, 99, 58);
+    border: solid 5px rgb(18, 99, 58);
     border-radius: 0px 0px 10px 10px;
 }
 
@@ -349,9 +347,60 @@ input[name='back'] {
     text-align: center;
 }
 
-.galeria h2, h3{
+.galeria h2{
     font-family: 'Lato', sans-serif;
     color: #ffffff;
+    font-size: 2rem;
+}
+
+.galeria h3 {
+    font-family: 'Lato', sans-serif;
+    color: #ffffff;
+    font-size: 1.6rem;
+}
+
+.galeria__item .descripcion_perro{
+    font-family: 'Lato', sans-serif;
+    color: #ffffff;
+}
+
+.post-detail {
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+}
+
+.post-detail li{
+    list-style-type: none;
+    display: inline-block;
+}
+
+.post-detail li a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1em;
+}
+
+.modificar{
+    height: 3.5vh;
+    width: 11vw;
+    font-size: 1.1em;
+    font-family: 'Lato', sans-serif;
+    background-color: #ffd62a;
+    border-color: #fff;
+    border-radius: 20px 20px 20px 20px;
+    text-shadow: 0.09em 0.09em #000;
+    margin-right: 1%;
+}
+
+.remover{
+    height: 3.5vh;
+    width: 11vw;
+    font-size: 1.1em;
+    font-family: 'Lato', sans-serif;
+    background-color: #ff2f2f;
+    border-color: #fff;
+    border-radius: 20px 20px 20px 20px;
+    text-shadow: 0.09em 0.09em #000;
 }
 
 @media screen and (max-width: 870px){

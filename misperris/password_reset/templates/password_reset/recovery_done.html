@@ -1,8 +1,13 @@
-
+{% extends 'password_reset/base_pass.html' %}
 {% load i18n %}
 
 {% block title %}{% trans "New password set" %}{% endblock %}
 
 {% block content %}
-	<p>{% trans "Your password has successfully been reset. You can use it right now on the login page." %}</p>
+<div class="confirm-changes">
+	<p>{% trans "Tu contraseña ha sido modificada con éxito." %}</p>
+	<br>
+	<input type="button" name="accept" value="Aceptar" onClick="location.href='/accounts/login'">
+</div>
+	
 {% endblock %}

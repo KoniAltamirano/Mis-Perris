@@ -57,7 +57,7 @@ class Mascotas(models.Model):
     foto = models.ImageField(blank=True,null=True,upload_to="perro/%Y")
     nombre = models.CharField(max_length=30)
     raza = models.CharField(max_length=30)
-    descripcion = models.CharField(max_length=30)
+    descripcion = models.CharField(max_length=100)
     estado_choices = (
                      ('RESCATADO','Rescatado'),
                      ('DISPONIBLE','Disponible'),

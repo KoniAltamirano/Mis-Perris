@@ -61,7 +61,7 @@ header nav ul li a:hover {
 	left: 50%;
 	width: 500px;
 	margin-left:-250px;
-	height: 320px;
+	height: 290px;
 	margin-top: -150px;
 	border: 2px solid #808080;
     padding: 1%;
@@ -169,11 +169,86 @@ input[name='name'] {
     border-radius: 20px 20px 20px 20px;
 }
 
-
-form label {
-    margin-right: 12px;
+.formulario #formulario-perris{
+    position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 500px;
+	margin-left:-250px;
+	height: 320px;
+	margin-top: -150px;
+	border: 2px solid #808080;
+    background: #fff;
+    text-align: center;
 }
 
+.pass-form #pass-form{
+    text-align: center;
+}
+
+.pass-form{
+    position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 500px;
+	margin-left:-250px;
+	height: 200px;
+	margin-top: -150px;
+	border: 2px solid #808080;
+    background: #fff;
+}
+
+.pass-form h1{
+    margin-top: 6%;
+}
+
+input[name='pass-recover'] {
+    justify-content: center;
+    height: 5vh;
+    width: 12vw;
+    margin-bottom: 3%;
+    font-size: 1.1em;
+    font-family: 'Lato', sans-serif;
+    background-color: #2277e6;
+    border-color: #fff;
+    color: #fff;
+    border-radius: 20px 20px 20px 20px;
+}
+
+.alert-pass{
+    text-align: center;
+    margin-top: 1%;
+}
+
+.new-pass{
+    position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 500px;
+	margin-left:-250px;
+	height: 240px;
+	margin-top: -150px;
+	border: 2px solid #808080;
+    background: #fff;
+    text-align: center;
+}
+
+input[name='accept'] {
+    justify-content: center;
+    height: 5vh;
+    width: 6vw;
+    margin-bottom: 3%;
+    font-size: 1.1em;
+    font-family: 'Lato', sans-serif;
+    background-color: #19bb42;
+    border-color: #fff;
+    color: #fff;
+    border-radius: 20px 20px 20px 20px;
+}
+
+.confirm-changes{
+    text-align: center;
+}
 
 @media screen and (max-width: 870px){
     header nav {
