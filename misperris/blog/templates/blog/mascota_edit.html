@@ -2,26 +2,32 @@
 {% block content %}
 <div class="row">
     <div class="col-xs-12">
-            <div class="img-apoyo">
-                    <img style="height:300px;" src="http://bowwowpetservice.com/wp-content/uploads/2013/10/sisters_with_family_dog_west_houston.jpg" alt="niñas_con_mascota">
-                </div>
+        <div class="img-apoyo">
+            <img style="height:300px;" src="http://bowwowpetservice.com/wp-content/uploads/2013/10/sisters_with_family_dog_west_houston.jpg"
+                alt="niñas_con_mascota">
+        </div>
+        <br>
+
+        <div class="nueva_mascota">
+            <h1>Detalles Mascota</h1>
+        </div>
+        <br>
+
+        <div class="form_mascota_new">
+            <form method="POST" class="post-form" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
                 <br>
-                
-                <div class="nueva_mascota">
-                    <h1>Nueva Mascota</h1>
-                </div>
-                <br>
-                
-                <div class="form_mascota_new">
-                    <form method="POST" class="post-form" enctype="multipart/form-data" >
-                        {% csrf_token %}
-                        {{ form.as_p }}
-                        <br> 
-                        
-                        <button type="submit" name="submit" class="guardar btn btn-default">Guardar</button>
-                        <input type="button" name="back" value="Volver" onclick="history.go(-2)">
-                    </form>
-                </div>       
+                <button type="submit" name="submit" class="guardar btn btn-default" onclick="editarMascota()">Guardar</button>
+                <input type="button" name="back" value="Volver" onclick="location.href='/Mascota_List'">
+            </form>
+        </div>
     </div>
 </div>
+
+<script>
+    function borrarMascota() {
+        alert("Mascota agregada/modificada exitosamente");
+    }
+</script>
 {% endblock %}

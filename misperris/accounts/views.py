@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, render_to_response
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from django.shortcuts import HttpResponseRedirect
 from .forms import CustomUserCreationForm
+from django.contrib import messages
 
 # Create your views here.
 

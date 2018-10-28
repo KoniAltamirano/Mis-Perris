@@ -218,8 +218,9 @@
                 {% if pets.estado == "DISPONIBLE" %}
                 <li class="galeria__item">
                     <h3>{{pets.nombre}}</h3>
+                    <br>
                     <img src="{{pets.foto.url}}" class="galeria__img">
-                    <section>{{ pets.descripcion }}</section>
+                    <section class="descripcion_perro">{{ pets.descripcion }}</section>
                 </li>
                 {% endif %}
                 {% endfor %}
@@ -232,8 +233,9 @@
                 {% for pets in mascotas %} {% if pets.estado == "RESCATADO" %}
                 <li class="galeria__item">
                     <h3>{{pets.nombre}}</h3>
+                    <br>
                     <img src="{{pets.foto.url}}" class="galeria__img" width="284">
-                    <section>{{ pets.descripcion }}</section>
+                    <section class="descripcion_perro">{{ pets.descripcion }}</section>
                 </li>
                 {% endif %} {% endfor %}
             </div>
