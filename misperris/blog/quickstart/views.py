@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from blog.quickstart.serializers import UserSerializer, GroupSerializer
+from blog.quickstart.serializers import UserSerializer, MascotaSerializer
+from blog.models import Mascotas
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -9,9 +10,9 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
 
-class GroupViewSet(viewsets.ModelViewSet):
+class MascotaViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows groups to be viewed or edited.
     """
-    queryset = Group.objects.all()
-    serializer_class = GroupSerializer
+    queryset = Mascotas.objects.all()
+    serializer_class = MascotaSerializer
