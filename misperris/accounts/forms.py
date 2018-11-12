@@ -21,6 +21,7 @@ class CustomUserCreationForm(forms.Form):
         email = self.cleaned_data['email'].lower()
         r = User.objects.filter(email=email)
         if r.count():
+            
             raise  ValidationError("Email already exists")
         return email
 

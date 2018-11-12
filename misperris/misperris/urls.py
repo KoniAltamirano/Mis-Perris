@@ -38,7 +38,7 @@ urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     # Necesario para allauth
-    url('login/', include('allauth.urls')),  
+    url('facebooklogin/', include('allauth.urls')),  
 ]
 
 if settings.DEBUG:
