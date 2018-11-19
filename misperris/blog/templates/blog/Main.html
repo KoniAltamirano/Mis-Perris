@@ -1,8 +1,10 @@
-{% load static %}
-<!DOCTYPE html>
+<!DOCTYPE html >
 <html lang="es">
+        {% load static %} {% load pwa %}
 
 <head>
+
+        {% progressive_web_app_meta %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -21,8 +23,10 @@
             $('.flexslider').flexslider();
         });
     </script>
+
     <script src="static/Js/script.js"></script>
     <link rel="stylesheet" href="/static/css/Style.css">
+
 </head>
 
 <body>
@@ -48,15 +52,14 @@
                                 <a href="#">Contáctanos</a>
                             </li>
 
-                            {% if user.is_authenticated %}
-                            {% if user.is_superuser %}
+                            {% if user.is_authenticated %} {% if user.is_superuser %}
                             <li><a href="{% url 'blog:mascota_list' %}">Mascotas</a></li>
                             {% else %}
                             <li>
                                 <a href="Registro.html">Postula AQUÍ!</a>
                             </li>
                             {% endif %}
-                            
+
                             <li style="font-size:22px" class="aviso-user">
                                 <div class="connect-message">
                                     Conectado como: {{ request.user }}
@@ -68,7 +71,7 @@
                                     <button class="salir" type="submit">Salir</button>
                                 </form>
                             </li>
-                            
+
                             {% else %}
                             <li style="font-size:20px">
                                 <a href="{% url 'accounts:login' %}">INGRESA</a>
@@ -153,8 +156,7 @@
                             </li>
                             <hr class="linea">
                             <li>
-                                <p> Rescatamos perros en situación de peligro y/o abandono. Los rehabilitamos<br> y los
-                                    preparamos
+                                <p> Rescatamos perros en situación de peligro y/o abandono. Los rehabilitamos<br> y los preparamos
                                     para buscarles un hogar.</p><br>
                             </li>
                             <li>
@@ -185,8 +187,7 @@
                         <hr class="linea">
                         <li>
                             <p>
-                                Sigue nuestras redes sociales para informarte acerca de las diversas campañas y <br>
-                                actividades
+                                Sigue nuestras redes sociales para informarte acerca de las diversas campañas y <br> actividades
                                 que realizamos para obtener financiamiento para seguir ayudando.
                             </p>
                         </li>
@@ -213,24 +214,20 @@
                 <br>
                 <h2>Disponibles</h2>
                 <hr>
-                <br>
-                {% for pets in mascotas %}
-                {% if pets.estado == "DISPONIBLE" %}
+                <br> {% for pets in mascotas %} {% if pets.estado == "DISPONIBLE" %}
                 <li class="galeria__item">
                     <h3>{{pets.nombre}}</h3>
                     <br>
                     <img src="{{pets.foto.url}}" class="galeria__img">
                     <section class="descripcion_perro">{{ pets.descripcion }}</section>
                 </li>
-                {% endif %}
-                {% endfor %}
+                {% endif %} {% endfor %}
             </div>
             <div class="col-xs-6">
                 <br>
                 <h2>Rescatados</h2>
                 <hr>
-                <br>
-                {% for pets in mascotas %} {% if pets.estado == "RESCATADO" %}
+                <br> {% for pets in mascotas %} {% if pets.estado == "RESCATADO" %}
                 <li class="galeria__item">
                     <h3>{{pets.nombre}}</h3>
                     <br>
@@ -241,6 +238,11 @@
             </div>
 
         </ul>
+
+
+
+
+
         <script src="/static/Js/modal.js"></script>
     </section>
     <div class="row">
@@ -250,6 +252,7 @@
             </footer>
         </div>
     </div>
+
 
 
 </body>

@@ -16,3 +16,4 @@ class MascotaViewSet(viewsets.ModelViewSet):
     """
     queryset = Mascotas.objects.all()
     serializer_class = MascotaSerializer
+

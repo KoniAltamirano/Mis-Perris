@@ -15,6 +15,12 @@ def home(request):
     mascotas = Mascotas.objects.all().order_by()
     return render(request, 'blog/Main.html', {'mascotas':mascotas })
 
+    
+    
+def serviceworker(request):
+    return render(request,'blog/sw.js')
+
+
 @login_required(login_url="/accounts/login/")
 def registro(request):
     form = UsuarioForm()

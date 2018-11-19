@@ -21,6 +21,8 @@ from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from django.conf.urls import include, url
 from rest_framework import routers
+from django.urls import path
+
 from blog.quickstart import views
 
 
@@ -33,12 +35,14 @@ router.register(r'Mascotas', views.MascotaViewSet)
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('accounts.urls')),
-    url(r'', include('blog.urls')),
+    url(r'^', include('blog.urls')),
     url(r'^password/', include('password_reset.urls')),
     url(r'^', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     # Necesario para allauth
     url('facebooklogin/', include('allauth.urls')),  
+    path('', include('pwa.urls')),
+    
 ]
 
 if settings.DEBUG:
