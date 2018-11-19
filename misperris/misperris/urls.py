@@ -22,7 +22,6 @@ from django.contrib.auth import views as auth_views
 from django.conf.urls import include, url
 from rest_framework import routers
 from django.urls import path
-
 from blog.quickstart import views
 
 
