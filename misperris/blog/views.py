@@ -17,8 +17,9 @@ def home(request):
 
     
     
-def serviceworker(request):
-    return render(request,'blog/sw.js')
+def base(request):
+    form = UsuarioForm()
+    return render(request,'blog/base.html')
 
 
 @login_required(login_url="/accounts/login/")

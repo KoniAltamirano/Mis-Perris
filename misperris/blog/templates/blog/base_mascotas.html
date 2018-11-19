@@ -1,7 +1,7 @@
-{% load staticfiles %}
-
 <!DOCTYPE html>
 <html lang="es">
+{% load staticfiles %} {% load pwa %} {% progressive_web_app_meta %}
+
 
 <head>
     <meta charset="UTF-8">
@@ -24,6 +24,7 @@
     <script src="static/Js/script.js"></script>
     <link rel="stylesheet" href="/static/css/Style.css">
 </head>
+
 <body>
     <div class="container-fluid">
         <div class="row">
@@ -37,14 +38,15 @@
                             <li>
                                 <a href="{% url 'blog:home' %}">Inicio</a>
                             </li>
-                           
+
                             {% if user.is_authenticated %}
                             <li>
-                                <a href="{% url 'blog:mascota_new' %}" class="top-menu"><span class="icon-plus agregar"></span>  Agregar nueva mascota</a>
+                                <a href="{% url 'blog:mascota_new' %}" class="top-menu"><span class="icon-plus agregar"></span>
+                                    Agregar nueva mascota</a>
                             </li>
                             <li style="font-size:22px" class="aviso-user">
                                 <div class="connect-message">
-                                Conectado como: {{ request.user }}
+                                    Conectado como: {{ request.user }}
                                 </div>
                             </li>
                             <li>
@@ -61,9 +63,7 @@
                         </ul>
                     </nav>
                 </header>
-                <br>
-                {% block content %}
-                {% endblock %}
+                <br> {% block content %} {% endblock %}
             </div>
         </div>
     </div>
