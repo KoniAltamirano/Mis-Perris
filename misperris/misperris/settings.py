@@ -35,17 +35,13 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.facebook',
-    # Esta esa nueva para django-allauth
     'django.contrib.sites',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
     'blog',
     'accounts',
     'password_reset',
@@ -57,9 +53,7 @@ INSTALLED_APPS = [
 AUTHENTICATION_BACKENDS = (
     # Necesario para logear por username en Django admin, sin importar allauth
     'django.contrib.auth.backends.ModelBackend',
-    
-    # Metodo de autenticación especifico de allauth, como logear por email
-   'allauth.account.auth_backends.AuthenticationBackend',
+    'social_core.backends.github.GithubOAuth2',
 )
 
 LOCAL_APPS = (
@@ -84,6 +78,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'misperris.urls'
@@ -99,6 +94,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'social_django.context_processors.backends',  # <--
+                'social_django.context_processors.login_redirect', # <--
             ],
         },
     },
@@ -172,33 +170,11 @@ EMAIL_HOST_PASSWORD = 'Django123'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-ACCOUNT_EMAIL_VERIFICATION = "none"
-SOCIALACCOUNT_PROVIDERS = {
-    'facebook': {
-        'METHOD': 'oauth2',
-        'SCOPE': ['email', 'public_profile', 'user_friends'],
-        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
-        'INIT_PARAMS': {'cookie': True},
-        'FIELDS': [
-            'id',
-            'email',
-            'name',
-            'first_name',
-            'last_name',
-            'verified',
-            'locale',
-            'timezone',
-            'link',
-            'gender',
-            'updated_time',
-        ],
-        'EXCHANGE_TOKEN': True,
-        'LOCALE_FUNC': 'path.to.callable',
-        'VERIFIED_EMAIL': False,
-        'VERSION': 'v2.12',
-    }
-}
+SOCIAL_AUTH_GITHUB_KEY = 'fe105c1acb8678839250'
+SOCIAL_AUTH_GITHUB_SECRET = 'dbd857b6839f6fbac160fe89660f07949430b51f'
 
-SOCIAL_AUTH_FACEBOOK_KEY = '2294065730667048'
-SOCIAL_AUTH_FACEBOOK_SECRET = 'f57ead18b1b0cae507f1cd80ff6e425b'
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = 'blog:home'
+
 

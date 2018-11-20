@@ -37,11 +37,9 @@ urlpatterns = [
     url(r'^', include('blog.urls')),
     url(r'^password/', include('password_reset.urls')),
     url(r'^', include(router.urls)),
+    url(r'^oauth/', include('social_django.urls', namespace='social')),  # <-- 
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    # Necesario para allauth
-    url('facebooklogin/', include('allauth.urls')),  
     path('', include('pwa.urls')),
-    
 ]
 
 if settings.DEBUG:
