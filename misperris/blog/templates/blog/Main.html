@@ -1,9 +1,11 @@
 <!DOCTYPE html >
 <html lang="es">
-        {% load static %} 
-        
-<head>     
-    
+{% load static %}
+
+<head>
+    {% load pwa %} {% progressive_web_app_meta %}
+    <meta name="msapplication-TileImage" content="static/icons/pet.png">
+    <meta name="msapplication-TileColor" content="#2F3BA2">
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +28,7 @@
 
     <script src="static/Js/script.js"></script>
     <link rel="stylesheet" href="/static/css/Style.css">
-    <link rel="manifest" href="/manifest.json">
+    
 </head>
 
 <body>
@@ -52,17 +54,18 @@
                                 <a href="#">Contáctanos</a>
                             </li>
 
-                            {% if user.is_authenticated %} 
-                            {% if user.is_superuser %}
-                           
-                            <li><a href="{% url 'blog:mascota_list' %}">Mascotas</a></li>
+                            {% if user.is_authenticated %} {% if user.is_superuser %}
+
+                            <li>
+                                <a href="{% url 'blog:mascota_list' %}">Mascotas</a>
+                            </li>
                             {% else %}
                             <li>
                                 <a href="Registro.html">Postula AQUÍ!</a>
                             </li>
                             {% endif %}
 
-                            
+
                             <li style="font-size:22px" class="aviso-user">
                                 <div class="connect-message">
                                     Conectado como: {{ request.user }}
@@ -159,8 +162,9 @@
                             </li>
                             <hr class="linea">
                             <li>
-                                <p> Rescatamos perros en situación de peligro y/o abandono. Los rehabilitamos<br> y los preparamos
-                                    para buscarles un hogar.</p><br>
+                                <p> Rescatamos perros en situación de peligro y/o abandono. Los rehabilitamos
+                                    <br> y los preparamos para buscarles un hogar.</p>
+                                <br>
                             </li>
                             <li>
                                 <img src="/static/IMG/rescate.jpg" alt="rescate">
@@ -190,12 +194,13 @@
                         <hr class="linea">
                         <li>
                             <p>
-                                Sigue nuestras redes sociales para informarte acerca de las diversas campañas y <br> actividades
-                                que realizamos para obtener financiamiento para seguir ayudando.
+                                Sigue nuestras redes sociales para informarte acerca de las diversas campañas y
+                                <br> actividades que realizamos para obtener financiamiento para seguir ayudando.
                             </p>
                         </li>
                         <li>
-                            <br><br>
+                            <br>
+                            <br>
                             <a href="#" id="Campañas">
                                 <b>CAMPAÑAS</b>
                             </a>
@@ -251,7 +256,8 @@
     <div class="row">
         <div class="col-xs-12">
             <footer id="piedepagina">
-                <p>Desarrollo Web y Mobile</p><br>
+                <p>Desarrollo Web y Mobile</p>
+                <br>
             </footer>
         </div>
     </div>
