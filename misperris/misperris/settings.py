@@ -66,7 +66,9 @@ INSTALLED_APPS = [
 AUTHENTICATION_BACKENDS = (
     # Necesario para logear por username en Django admin, sin importar allauth
     'django.contrib.auth.backends.ModelBackend',
-    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.open_id.OpenIdAuth', 
+    'social_core.backends.google.GoogleOpenId',  
+    'social_core.backends.google.GoogleOAuth2',  
 )
 
 LOCAL_APPS = (
@@ -183,8 +185,8 @@ EMAIL_HOST_PASSWORD = 'Django123'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-SOCIAL_AUTH_GITHUB_KEY = 'fe105c1acb8678839250'
-SOCIAL_AUTH_GITHUB_SECRET = 'dbd857b6839f6fbac160fe89660f07949430b51f'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '705526556730-35suas37smrf06vg8t4t3n24fg6rk131.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '0eVME8_WxXMDRjr0Svi4toVC'
 
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
